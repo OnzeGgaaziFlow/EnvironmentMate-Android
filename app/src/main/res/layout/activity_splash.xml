@@ -11,6 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="279dp"
+        android:gravity="center"
         android:text="환경과 지키는\n기업과 정부"
         android:textColor="@color/black_323232"
         android:textSize="24dp"
@@ -24,8 +25,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="43dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/splash_tv_title"
+        app:layout_constraintStart_toStartOf="@id/splash_tv_title"
         app:layout_constraintTop_toBottomOf="@id/splash_tv_title"
         app:srcCompat="@drawable/ic_group_1318" />
 
