@@ -3,7 +3,9 @@ package com.mtjin.envmate.views.sign_in
 import androidx.lifecycle.LiveData
 import com.mtjin.envmate.base.BaseViewModel
 import com.mtjin.envmate.utils.SingleLiveEvent
+import dagger.hilt.android.lifecycle.HiltViewModel
 
+@HiltViewModel
 class SignInViewModel : BaseViewModel() {
     private val _goLogin = SingleLiveEvent<Unit>()
     private val _goSignUp = SingleLiveEvent<Unit>()
