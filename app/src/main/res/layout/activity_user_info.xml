@@ -1,9 +1,265 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".views.user_info.UserInfoActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="50dp"
+            tools:context=".views.user_info.UserInfoActivity">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/phone_auth_tv_cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20.83dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/ic_back" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/phone_auth_tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="16dp"
+                app:layout_constraintBottom_toBottomOf="@id/phone_auth_tv_cancel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/phone_auth_tv_cancel" />
+
+            <View
+                android:id="@+id/phone_auth_view_top"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="12dp"
+                android:background="@color/light_gray_F5F5F5"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_auth_tv_cancel" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_business_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:text="회사 정보"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="21dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/phone_auth_view_top" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_business_info_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:text="가입하고자 하는 회사의 정보를 입력해주세요."
+                android:textColor="@color/gray_999999"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_business_info"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_business_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_business_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="43dp"
+                android:text="회사 이름"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_business_info_content" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_business_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="회사 이름을 입력해주세요."
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_business_name"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_business_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_business_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="사업장 번호"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_et_business_name" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_business_code"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="-없이 입력해주세요."
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_business_code"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_business_code" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="40dp"
+                android:text="가입자 정보"
+                android:textColor="@color/dark_gray_333333"
+                android:textSize="21dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_et_business_code" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_info_content"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:text="정확한 정보를 입력해주셔야 추후에 연락드릴 수 있습니다."
+                android:textColor="@color/gray_999999"
+                android:textSize="14dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_user_info"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_info" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="43dp"
+                android:text="담당자 이름"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_info_content" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_user_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="홍길동"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_user_name"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_name" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="담당자 직급"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_et_user_name" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_user_rank"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="대리"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_user_rank"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_rank" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="담당자 연락처"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_et_user_rank" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_user_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="01012345678"
+                android:inputType="numberDecimal"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_user_phone"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_phone" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/user_info_tv_user_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="56dp"
+                android:text="담당자 이메일"
+                android:textColor="@color/gray_858585"
+                android:textSize="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/user_info_et_user_phone" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/user_info_et_user_email"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="20dp"
+                android:hint="envmate@example.com"
+                android:inputType="textEmailAddress"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/user_info_tv_user_email"
+                app:layout_constraintTop_toBottomOf="@id/user_info_tv_user_email" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/sign_in_btn_start"
+                android:layout_width="0dp"
+                android:layout_height="52dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="54dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+                android:text="기업 코드로 시작하기"
+                android:textColor="@color/white"
+                android:textSize="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/user_info_et_user_email" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</layout>
