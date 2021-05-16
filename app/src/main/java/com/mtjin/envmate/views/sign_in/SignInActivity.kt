@@ -3,6 +3,7 @@ package com.mtjin.envmate.views.sign_in
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.lifecycle.Observer
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivitySignInBinding
@@ -22,11 +23,11 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
 
     private fun initViewModelCallback() {
         with(viewModel) {
-            goLogin.observe(this@SignInActivity, {
+            goLogin.observe(this@SignInActivity, Observer {
                 startActivity(Intent(this@SignInActivity, LoginActivity::class.java))
             })
 
-            goSignUp.observe(this@SignInActivity, {
+            goSignUp.observe(this@SignInActivity, Observer {
                 startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
             })
         }

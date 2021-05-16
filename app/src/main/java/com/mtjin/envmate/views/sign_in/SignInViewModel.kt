@@ -11,8 +11,8 @@ class SignInViewModel @Inject constructor() : BaseViewModel() {
     private val _goLogin = SingleLiveEvent<Unit>()
     private val _goSignUp = SingleLiveEvent<Unit>()
 
-    val goLogin: LiveData<Unit> = _goLogin
-    val goSignUp: LiveData<Unit> = _goSignUp
+    val goLogin: LiveData<Unit> get() = _goLogin
+    val goSignUp: LiveData<Unit> get() = _goSignUp
 
     fun goLogin() {
         _goLogin.call()
