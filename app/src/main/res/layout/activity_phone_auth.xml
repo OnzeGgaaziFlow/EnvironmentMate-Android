@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.phone_auth.PhoneAuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,6 +93,7 @@
             android:layout_marginEnd="8dp"
             android:hint="01012345678"
             android:inputType="numberDecimal"
+            android:text="@={vm.etPhoneNum}"
             android:textSize="16dp"
             app:layout_constraintEnd_toStartOf="@id/phone_auth_btn_auth"
             app:layout_constraintStart_toStartOf="parent"
@@ -130,6 +134,7 @@
             android:hint="숫자 6자리"
             android:inputType="numberDecimal"
             android:maxLength="6"
+            android:text="@={vm.etAuthNum}"
             android:textSize="16dp"
             app:layout_constraintEnd_toStartOf="@id/phone_auth_btn_auth"
             app:layout_constraintStart_toStartOf="parent"
