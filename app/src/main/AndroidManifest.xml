@@ -12,7 +12,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.EnvMate">
+        android:theme="@style/Theme.EnvMate"
+        android:usesCleartextTraffic="true">
         <activity android:name=".views.sign_up.sign_up_complete.SignUpCompleteActivity"></activity>
         <activity android:name=".views.sign_up.user_info.UserInfoActivity" />
         <activity android:name=".views.sign_up.phone_auth.PhoneAuthActivity" />
