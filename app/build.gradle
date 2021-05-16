@@ -34,6 +34,7 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures { dataBinding = true }
 }
 
 dependencies {
@@ -71,6 +72,6 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.5"
     // firebase auth
-    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
-    implementation 'com.google.firebase:firebase-auth:21.0.1'
+    implementation 'com.google.firebase:firebase-auth-ktx:19.3.2'
+    implementation 'com.google.firebase:firebase-auth:19.3.2'
 }

@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.mtjin.envmate">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".views.MyApplication"
         android:allowBackup="true"
@@ -10,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvMate">
-        <activity android:name=".views.phone_auth.PhoneAuthActivity"></activity>
+        <activity android:name=".views.user_info.UserInfoActivity" />
+        <activity android:name=".views.phone_auth.PhoneAuthActivity" />
         <activity android:name=".views.sign_up.SignUpActivity" />
         <activity android:name=".views.login.LoginActivity" />
         <activity android:name=".views.sign_in.SignInActivity" />

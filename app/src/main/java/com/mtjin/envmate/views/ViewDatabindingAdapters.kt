@@ -2,6 +2,7 @@ package com.mtjin.envmate.views
 
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
@@ -31,6 +32,13 @@ fun TextView.setHtmlText(html: String?) {
 // 약관 동의 여부에 따른 배경색
 @BindingAdapter("onAgreementBackground")
 fun TextView.setOnNextBackground(isCompleted: Boolean) {
-    if (isCompleted) setBackgroundColor(resources.getColor(R.color.dark_gray_333333))
-    else setBackgroundColor(resources.getColor(R.color.light_gray_EBEBEB))
+    if (!isCompleted) {
+        background =
+            ContextCompat.getDrawable(context, R.drawable.bg_btn_solid_light_gray_ebebeb_radius_8dp)
+        setTextColor(ContextCompat.getColor(context, R.color.gray_BCBCBC))
+    } else {
+        background =
+            ContextCompat.getDrawable(context, R.drawable.bg_btn_solid_dark_gray_333333_radius_8dp)
+        setTextColor(ContextCompat.getColor(context, R.color.white))
+    }
 }
