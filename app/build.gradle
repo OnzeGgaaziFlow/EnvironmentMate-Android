@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
+    id 'com.google.gms.google-services'
     id 'dagger.hilt.android.plugin'
     id "androidx.navigation.safeargs"
 }
@@ -32,9 +33,6 @@ android {
     }
     kotlinOptions {
         jvmTarget = '1.8'
-    }
-    buildFeatures {
-        dataBinding = true
     }
 }
 
@@ -72,4 +70,7 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
     implementation "androidx.navigation:navigation-dynamic-features-fragment:2.3.5"
+    // firebase auth
+    implementation 'com.google.firebase:firebase-auth-ktx:21.0.1'
+    implementation 'com.google.firebase:firebase-auth:21.0.1'
 }
