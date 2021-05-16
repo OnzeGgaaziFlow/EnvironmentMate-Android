@@ -5,6 +5,9 @@
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_up.sign_up_complete.SignUpCompleteViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -66,6 +69,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="22dp"
             android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+            android:onClick="@{()->vm.goLogin()}"
             android:text="로그인 하기"
             android:textColor="@color/white"
             android:textSize="16dp"
