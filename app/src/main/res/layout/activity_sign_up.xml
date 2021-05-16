@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
+        <variable
+            name="vm"
+            type="com.mtjin.envmate.views.sign_up.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -90,15 +94,18 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/sign_up_iv_all_agree"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:id="@+id/sign_up_cb_all_agree"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
                 android:layout_marginEnd="16dp"
+                android:background="@drawable/selector_agreement"
+                android:button="@null"
+                android:checked="@{vm.allAgree}"
+                android:onClick="@{()->vm.agreeAll()}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_non_check_circle" />
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -134,15 +141,18 @@
             app:layout_constraintStart_toEndOf="@id/sign_up_tv_agree_service_terms"
             app:layout_constraintTop_toTopOf="@id/sign_up_tv_agree_service_terms" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_iv_service_term_agreement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/sign_up_cb_service_term_agreement"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="32dp"
+            android:background="@drawable/selector_agreement"
+            android:button="@null"
+            android:checked="@{vm.serviceAgree}"
+            android:onClick="@{()->vm.agreeService()}"
             app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_agree_service_terms"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/sign_up_tv_agree_service_terms"
-            app:srcCompat="@drawable/ic_non_check_circle" />
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_agree_service_terms" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sign_up_tv_personal_info_terms"
@@ -166,15 +176,18 @@
             app:layout_constraintStart_toEndOf="@id/sign_up_tv_personal_info_terms"
             app:layout_constraintTop_toTopOf="@id/sign_up_tv_personal_info_terms" />
 
-        <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/sign_up_iv_personal_info_agreement"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/sign_up_cb_personal_info_agreement"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:layout_marginEnd="32dp"
+            android:background="@drawable/selector_agreement"
+            android:button="@null"
+            android:checked="@{vm.personalInfoAgree}"
+            android:onClick="@{()->vm.agreePersonalInfo()}"
             app:layout_constraintBottom_toBottomOf="@id/sign_up_tv_personal_info_terms"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/sign_up_tv_personal_info_terms"
-            app:srcCompat="@drawable/ic_non_check_circle" />
+            app:layout_constraintTop_toTopOf="@id/sign_up_tv_personal_info_terms" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign_up_btn_agreement"
@@ -184,13 +197,15 @@
             android:layout_marginEnd="20dp"
             android:layout_marginBottom="50dp"
             android:background="@drawable/bg_btn_solid_light_gray_ebebeb_radius_8dp"
+            android:onClick="@{()->vm.goPhoneAuth()}"
             android:stateListAnimator="@null"
             android:text="동의"
             android:textColor="@color/white"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            bind:onAgreementBackground="@{vm.allAgree}" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

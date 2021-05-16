@@ -3,6 +3,7 @@ package com.mtjin.envmate.base
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.mtjin.envmate.utils.SingleLiveEvent
 import io.reactivex.disposables.CompositeDisposable
 
 abstract class BaseViewModel : ViewModel() {
@@ -12,6 +13,8 @@ abstract class BaseViewModel : ViewModel() {
     val isLoading: LiveData<Boolean> get() = _isLoading
     private val _isLottieLoading = MutableLiveData<Boolean>(false)
     val isLottieLoading: LiveData<Boolean> get() = _isLottieLoading
+    private var _backClick = SingleLiveEvent<Unit>()
+    val backClick: LiveData<Unit> get() = _backClick
 
     override fun onCleared() {
         compositeDisposable.dispose()
@@ -34,4 +37,7 @@ abstract class BaseViewModel : ViewModel() {
         _isLottieLoading.value = false
     }
 
+    fun onBackClick() {
+        _backClick.call()
+    }
 }
