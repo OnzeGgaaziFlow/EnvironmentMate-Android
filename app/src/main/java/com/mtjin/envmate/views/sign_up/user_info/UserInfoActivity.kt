@@ -1,4 +1,4 @@
-package com.mtjin.envmate.views.user_info
+package com.mtjin.envmate.views.sign_up.user_info
 
 import android.os.Bundle
 import androidx.activity.viewModels

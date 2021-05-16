@@ -8,7 +8,7 @@ import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivitySignInBinding
 import com.mtjin.envmate.views.login.LoginActivity
-import com.mtjin.envmate.views.sign_up.SignUpActivity
+import com.mtjin.envmate.views.sign_up.sign_up.SignUpActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

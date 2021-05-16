@@ -1,4 +1,4 @@
-package com.mtjin.envmate.views.phone_auth
+package com.mtjin.envmate.views.sign_up.phone_auth
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.mtjin.envmate.views.user_info.UserInfoViewModel" />
+            type="com.mtjin.envmate.views.sign_up.user_info.UserInfoViewModel" />
     </data>
 
     <ScrollView
@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="50dp"
-            tools:context=".views.user_info.UserInfoActivity">
+            tools:context=".views.sign_up.user_info.UserInfoActivity">
 
             <androidx.appcompat.widget.AppCompatImageView
                 android:id="@+id/phone_auth_tv_cancel"

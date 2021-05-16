@@ -13,9 +13,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.EnvMate">
-        <activity android:name=".views.user_info.UserInfoActivity" />
-        <activity android:name=".views.phone_auth.PhoneAuthActivity" />
-        <activity android:name=".views.sign_up.SignUpActivity" />
+        <activity android:name=".views.sign_up.user_info.UserInfoActivity" />
+        <activity android:name=".views.sign_up.phone_auth.PhoneAuthActivity" />
+        <activity android:name=".views.sign_up.sign_up.SignUpActivity" />
         <activity android:name=".views.login.LoginActivity" />
         <activity android:name=".views.sign_in.SignInActivity" />
         <activity android:name=".views.splash.SplashActivity">

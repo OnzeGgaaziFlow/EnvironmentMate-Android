@@ -8,13 +8,13 @@
 
         <variable
             name="vm"
-            type="com.mtjin.envmate.views.sign_up.SignUpViewModel" />
+            type="com.mtjin.envmate.views.sign_up.sign_up.SignUpViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.sign_up.SignUpActivity">
+        tools:context=".views.sign_up.sign_up.SignUpActivity">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sign_up_tv_cancel"

@@ -7,13 +7,13 @@
 
         <variable
             name="vm"
-            type="com.mtjin.envmate.views.phone_auth.PhoneAuthViewModel" />
+            type="com.mtjin.envmate.views.sign_up.phone_auth.PhoneAuthViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".views.phone_auth.PhoneAuthActivity">
+        tools:context=".views.sign_up.phone_auth.PhoneAuthActivity">
 
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/phone_auth_tv_cancel"

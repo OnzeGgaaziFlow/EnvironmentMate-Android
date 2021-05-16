@@ -1,4 +1,4 @@
-package com.mtjin.envmate.views.phone_auth
+package com.mtjin.envmate.views.sign_up.phone_auth
 
 import android.content.Intent
 import android.os.Bundle
@@ -12,7 +12,7 @@ import com.google.firebase.auth.PhoneAuthProvider
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivityPhoneAuthBinding
-import com.mtjin.envmate.views.user_info.UserInfoActivity
+import com.mtjin.envmate.views.sign_up.user_info.UserInfoActivity
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.concurrent.TimeUnit
 

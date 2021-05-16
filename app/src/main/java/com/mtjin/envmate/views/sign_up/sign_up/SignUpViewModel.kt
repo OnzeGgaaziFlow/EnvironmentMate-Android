@@ -1,4 +1,4 @@
-package com.mtjin.envmate.views.sign_up
+package com.mtjin.envmate.views.sign_up.sign_up
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

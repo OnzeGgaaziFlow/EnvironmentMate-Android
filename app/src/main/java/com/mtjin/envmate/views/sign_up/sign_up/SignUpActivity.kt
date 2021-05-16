@@ -1,4 +1,4 @@
-package com.mtjin.envmate.views.sign_up
+package com.mtjin.envmate.views.sign_up.sign_up
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivitySignUpBinding
-import com.mtjin.envmate.views.phone_auth.PhoneAuthActivity
+import com.mtjin.envmate.views.sign_up.phone_auth.PhoneAuthActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
