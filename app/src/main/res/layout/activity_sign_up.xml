@@ -200,7 +200,7 @@
             android:onClick="@{()->vm.goPhoneAuth()}"
             android:stateListAnimator="@null"
             android:text="동의"
-            android:textColor="@color/white"
+            android:textColor="@color/gray_BCBCBC"
             android:textSize="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
