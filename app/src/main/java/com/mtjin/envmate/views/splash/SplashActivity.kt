@@ -6,7 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
 import com.mtjin.envmate.R
-import com.mtjin.envmate.views.main.MainActivity
+import com.mtjin.envmate.views.sign_in.SignInActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
 
     private fun goSignIn() {
         Handler(Looper.getMainLooper()).postDelayed({
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
             finish()
         }, 1000)
     }
