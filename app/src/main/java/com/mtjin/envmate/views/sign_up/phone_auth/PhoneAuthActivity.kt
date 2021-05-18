@@ -114,12 +114,16 @@ class PhoneAuthActivity : BaseActivity<ActivityPhoneAuthBinding>(R.layout.activi
             authComplete.observe(this@PhoneAuthActivity, Observer { // 인증완료 버튼 클릭 시
                 // 휴대폰 인증번호로 인증 및 로그인 실행
                 // onCodeSent() 에서 받은 vertificationID 와 문자메시지로 전송한 인증코드값으로 Credintial 만든 후 인증 시도
-                val phoneCredential =
-                    PhoneAuthProvider.getCredential(
-                        storedVerificationId,
-                        viewModel.etAuthNum.value!!
-                    )
-                verifyPhoneNumberWithCode(phoneCredential)
+                try {
+                    val phoneCredential =
+                        PhoneAuthProvider.getCredential(
+                            storedVerificationId,
+                            viewModel.etAuthNum.value!!
+                        )
+                    verifyPhoneNumberWithCode(phoneCredential)
+                } catch (e: Exception) {
+                    Log.d(TAG, e.toString())
+                }
             })
         }
     }

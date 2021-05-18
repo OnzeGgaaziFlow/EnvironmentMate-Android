@@ -1,4 +1,4 @@
-package com.mtjin.envmate.data.model
+package com.mtjin.envmate.data.model.request
 
 
 import com.google.gson.annotations.SerializedName
@@ -17,5 +17,9 @@ data class User(
     @SerializedName("officer_position")
     val officerPosition: String,
     @SerializedName("password")
-    val password: String
+    val password: String,
+    @SerializedName("industry")
+    val industry: String,
+    @SerializedName("location_name")
+    val locationName: String
 )
