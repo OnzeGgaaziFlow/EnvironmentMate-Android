@@ -40,6 +40,8 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
     }
 
     fun insertUserInfo() {
+        Log.d("AAAAAA", "AAAA")
+        Log.d("AAAAAA", userTel.value!!)
         repository.insertUserInfo(
             User(
                 businessName = businessName.value!!,
@@ -57,10 +59,28 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
             .doOnSubscribe { showProgress() }
             .doAfterTerminate { hideProgress() }
             .subscribeBy(onSuccess = {
-                Log.d(TAG, "insertUserInfo() -> $it")
+                Log.d(TAG, "insertUserInfo() onSuccess -> $it")
+                Log.d(TAG, "insertUserInfo() onSuccess -> " + it.message)
+                requestSignUpAccept()
+            }, onError = {
+                Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
+                _insertUserInfoResult.value = false
+            }).addTo(compositeDisposable)
+    }
+
+    private fun requestSignUpAccept() {
+        repository.requestSignUpAccept(
+            userEmail.value!!
+        ).subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .doOnSubscribe { showProgress() }
+            .doAfterTerminate { hideProgress() }
+            .subscribeBy(onSuccess = {
+                Log.d(TAG, "requestSignUpAccept() onSuccess -> $it")
+                Log.d(TAG, "requestSignUpAccept() onSuccess -> " + it.message)
                 _insertUserInfoResult.value = true
             }, onError = {
-                Log.d(TAG, "insertUserInfo() -> " + it.localizedMessage)
+                Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
                 _insertUserInfoResult.value = false
             }).addTo(compositeDisposable)
     }

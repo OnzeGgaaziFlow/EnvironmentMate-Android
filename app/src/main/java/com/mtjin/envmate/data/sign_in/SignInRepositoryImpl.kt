@@ -9,6 +9,6 @@ import javax.inject.Inject
 class SignInRepositoryImpl @Inject constructor(private val apiInterface: ApiInterface) :
     SignInRepository {
     override fun requestLogin(loginReq: LoginReq): Single<LoginRes> {
-        return apiInterface.requestLogin(loginReq)
+        return apiInterface.requestLogin(loginReq.email, loginReq.password)
     }
 }

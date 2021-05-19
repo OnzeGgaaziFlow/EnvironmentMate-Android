@@ -30,7 +30,7 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
             })
 
             goSignUp.observe(this@SignInActivity, Observer {
-                UserInfo.headerKey = viewModel.key
+                UserInfo.headerKey = "Token " + viewModel.key
                 startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
             })
         }

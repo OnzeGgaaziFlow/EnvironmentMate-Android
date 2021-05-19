@@ -16,8 +16,6 @@
 
 package com.mtjin.envmate.api
 
-import com.mtjin.envmate.data.model.request.LoginReq
-import com.mtjin.envmate.data.model.request.User
 import com.mtjin.envmate.data.model.response.EnvRes
 import com.mtjin.envmate.data.model.response.LoginRes
 import com.mtjin.envmate.data.model.response.SignUpRes
@@ -28,17 +26,47 @@ import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
+import retrofit2.http.Field
+import retrofit2.http.FormUrlEncoded
 import retrofit2.http.POST
 
 
 interface ApiInterface {
 
+    @FormUrlEncoded
     @POST("accounts/signup-req")
-    fun insertUserInfo(@Body user: User): Single<SignUpRes>
+    fun insertUserInfo(
+        @Field("business_name") businessName: String,
+        @Field("business_number")
+        businessNumber: String,
+        @Field("officer_email")
+        officerEmail: String,
+        @Field("officer_name")
+        officerName: String,
+        @Field("officer_phone")
+        officerPhone: String,
+        @Field("officer_position")
+        officerPosition: String,
+        @Field("password")
+        password: String,
+        @Field("industry")
+        industry: String,
+        @Field("location_name")
+        locationName: String
+    ): Single<SignUpRes>
 
+    @FormUrlEncoded
+    @POST("accounts/signup-accept")
+    fun requestSignUpAccept(
+        @Field("officer_email") officeEmail: String
+    ): Single<SignUpRes>
+
+    @FormUrlEncoded
     @POST("accounts/login/")
-    fun requestLogin(@Body loginReq: LoginReq): Single<LoginRes>
+    fun requestLogin(
+        @Field("email") email: String,
+        @Field("password") password: String
+    ): Single<LoginRes>
 
     @POST("datas/compare/region")
     fun requestEntireEnv(): Single<EnvRes>
@@ -52,7 +80,7 @@ interface ApiInterface {
 
     companion object {
         private const val BASE_URL =
-            "http://ec2-52-79-165-250.ap-northeast-2.compute.amazonaws.com/"
+            "http://7ebfdca2d6ff.ngrok.io/"
 
         fun create(): ApiInterface {
             val logger = HttpLoggingInterceptor().apply {
@@ -62,7 +90,7 @@ interface ApiInterface {
             val interceptor = Interceptor { chain ->
                 with(chain) {
                     val newRequest = request().newBuilder()
-                        .addHeader("Authorization", "example")
+                        .addHeader("Authorization", "")
                         .build()
                     proceed(newRequest)
                 }

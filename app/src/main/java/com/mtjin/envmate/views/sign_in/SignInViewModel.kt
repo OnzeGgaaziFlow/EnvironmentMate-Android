@@ -41,6 +41,7 @@ class SignInViewModel @Inject constructor(private val repository: SignInReposito
             .doOnSubscribe { showProgress() }
             .doAfterTerminate { hideProgress() }
             .subscribeBy(onSuccess = {
+                Log.d(TAG, "requestLogin() KEY -> " + it.key)
                 key = it.key
                 _loginResult.value = true
             }, onError = {
