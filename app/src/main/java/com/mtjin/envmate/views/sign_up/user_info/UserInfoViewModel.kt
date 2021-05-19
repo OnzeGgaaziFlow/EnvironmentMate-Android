@@ -57,6 +57,7 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
             .doOnSubscribe { showProgress() }
             .doAfterTerminate { hideProgress() }
             .subscribeBy(onSuccess = {
+                Log.d(TAG, "insertUserInfo() -> $it")
                 _insertUserInfoResult.value = true
             }, onError = {
                 Log.d(TAG, "insertUserInfo() -> " + it.localizedMessage)

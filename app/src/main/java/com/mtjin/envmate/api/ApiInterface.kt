@@ -16,9 +16,7 @@
 
 package com.mtjin.envmate.api
 
-import com.mtjin.envmate.data.model.request.IndustryAllEnvReq
 import com.mtjin.envmate.data.model.request.LoginReq
-import com.mtjin.envmate.data.model.request.SameRegionEnvReq
 import com.mtjin.envmate.data.model.request.User
 import com.mtjin.envmate.data.model.response.EnvRes
 import com.mtjin.envmate.data.model.response.LoginRes
@@ -53,7 +51,8 @@ interface ApiInterface {
 
 
     companion object {
-        private const val BASE_URL = "http://localhost:8000/"
+        private const val BASE_URL =
+            "http://ec2-52-79-165-250.ap-northeast-2.compute.amazonaws.com/"
 
         fun create(): ApiInterface {
             val logger = HttpLoggingInterceptor().apply {

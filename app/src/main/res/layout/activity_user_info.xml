@@ -5,7 +5,8 @@
 
     <data>
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
+
         <variable
             name="vm"
             type="com.mtjin.envmate.views.sign_up.user_info.UserInfoViewModel" />
@@ -173,7 +174,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="56dp"
-                android:text="사업장 번호"
+                android:text="지역"
                 android:textColor="@color/gray_858585"
                 android:textSize="12dp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -186,7 +187,7 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="20dp"
                 android:focusable="true"
-                android:hint="-없이 입력해주세요."
+                android:hint="서울"
                 android:text="@={vm.businessLocation}"
                 android:textSize="16dp"
                 app:layout_constraintEnd_toEndOf="parent"

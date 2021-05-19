@@ -49,10 +49,6 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>(R.layout.activity
                             showToast("정보를 모두 작성해주세요")
                             userInfoEtUserRank.requestFocus()
                         }
-                        userTel.value!!.isBlank() -> {
-                            showToast("정보를 모두 작성해주세요")
-                            userInfoEtUserPhone.requestFocus()
-                        }
                         userEmail.value!!.isBlank() -> {
                             showToast("정보를 모두 작성해주세요")
                             userInfoEtUserEmail.requestFocus()
