@@ -17,6 +17,7 @@
 package com.mtjin.envmate.api
 
 import com.mtjin.envmate.data.model.response.EnvRes
+import com.mtjin.envmate.data.model.response.IndustryEnergyRes
 import com.mtjin.envmate.data.model.response.LoginRes
 import com.mtjin.envmate.data.model.response.SignUpRes
 import io.reactivex.Single
@@ -69,13 +70,28 @@ interface ApiInterface {
     ): Single<LoginRes>
 
     @POST("datas/compare/region")
-    fun requestEntireEnv(): Single<EnvRes>
+    fun requestCompareRegion(): Single<EnvRes>
 
     @POST("datas/compare/same-region")
-    fun requestSameRegionEnv(): Single<EnvRes>
+    fun requestCompareSameRegion(
+        @Field("usage") usage: Int = 80000
+    ): Single<EnvRes>
 
     @POST("datas/compare/industry-all")
-    fun requestIndustryAllEnv(): Single<EnvRes>
+    fun requestCompareIndustryAllEnv(): Single<EnvRes>
+
+    @POST("datas/compare/industry-sameall")
+    fun requestCompareIndustrySameAll(@Field("usage") usage: Int): Single<EnvRes>
+
+    @POST("datas/detail/industry-energy")
+    fun requestDetailIndustryEnergy(
+        @Field("gas") gas: Int,
+        @Field("other") other: Int,
+        @Field("oil") oil: Int,
+        @Field("coal") coal: Int,
+        @Field("thermal") thermal: Int,
+        @Field("electric") electric: Int
+    ): Single<IndustryEnergyRes>
 
 
     companion object {
