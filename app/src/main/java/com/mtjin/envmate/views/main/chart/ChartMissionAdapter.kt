@@ -5,12 +5,12 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.mtjin.envmate.R
-import com.mtjin.envmate.data.model.response.IndustryEnergyRes
+import com.mtjin.envmate.data.model.response.IndustryEnergy
 import com.mtjin.envmate.databinding.ItemChartMissionBinding
 
-class MissionAdapter(private val onItemClick: (IndustryEnergyRes) -> Unit) :
-    RecyclerView.Adapter<MissionAdapter.ViewHolder>() {
-    private val items: ArrayList<IndustryEnergyRes> = ArrayList()
+class ChartMissionAdapter(private val onItemClick: (IndustryEnergy) -> Unit) :
+    RecyclerView.Adapter<ChartMissionAdapter.ViewHolder>() {
+    private val items: ArrayList<IndustryEnergy> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding: ItemChartMissionBinding = DataBindingUtil.inflate(
@@ -33,18 +33,18 @@ class MissionAdapter(private val onItemClick: (IndustryEnergyRes) -> Unit) :
     class ViewHolder(private val binding: ItemChartMissionBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: IndustryEnergyRes) {
-            binding.mission = item.result[1][adapterPosition]
+        fun bind(item: IndustryEnergy) {
+            binding.item = item
             binding.executePendingBindings()
         }
     }
 
-    fun addItems(items: List<IndustryEnergyRes>) {
+    fun addItems(items: List<IndustryEnergy>) {
         this.items.addAll(items)
         notifyDataSetChanged()
     }
 
-    fun addItem(item: IndustryEnergyRes) {
+    fun addItem(item: IndustryEnergy) {
         this.items.add(item)
         notifyDataSetChanged()
     }

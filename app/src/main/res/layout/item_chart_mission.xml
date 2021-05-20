@@ -6,8 +6,8 @@
     <data>
 
         <variable
-            name="mission"
-            type="String" />
+            name="item"
+            type="com.mtjin.envmate.data.model.response.IndustryEnergy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -39,7 +39,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="26dp"
-                android:text="@{mission}"
+                android:text="@{item.shortMission}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/chart_iv_right_arrow"
                 app:layout_constraintStart_toEndOf="@id/chart_iv_mission_image"
