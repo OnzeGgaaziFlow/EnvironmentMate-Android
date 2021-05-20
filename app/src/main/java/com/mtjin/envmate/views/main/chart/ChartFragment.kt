@@ -74,10 +74,6 @@ class ChartFragment :
             detailIndustryEnergyResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-                binding.run {
-                    chartLayoutComment.visibility = View.GONE
-                    chartLayoutMission.visibility = View.VISIBLE
-                }
             })
         }
     }
@@ -112,7 +108,10 @@ class ChartFragment :
                         viewModel.requestCompareIndustrySameAll()
                     }
                     5 -> {
-                        viewModel.requestDetailIndustryEnergy()
+                        binding.run {
+                            chartLayoutComment.visibility = View.GONE
+                            chartLayoutMission.visibility = View.VISIBLE
+                        }
                     }
                 }
             }

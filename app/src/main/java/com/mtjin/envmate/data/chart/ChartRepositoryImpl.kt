@@ -25,13 +25,20 @@ class ChartRepositoryImpl @Inject constructor(private val mainApiInterface: Main
     }
 
     override fun requestDetailIndustryEnergy(
-        gas: Int,
-        other: Int,
-        oil: Int,
-        coal: Int,
-        thermal: Int,
-        electric: Int
+        gas: Float,
+        other: Float,
+        oil: Float,
+        coal: Float,
+        thermal: Float,
+        electric: Float
     ): Single<IndustryEnergyRes> {
-        return mainApiInterface.requestDetailIndustryEnergy(gas, other, oil, coal, thermal, electric)
+        return mainApiInterface.requestDetailIndustryEnergy(
+            gas,
+            other,
+            oil,
+            coal,
+            thermal,
+            electric
+        )
     }
 }

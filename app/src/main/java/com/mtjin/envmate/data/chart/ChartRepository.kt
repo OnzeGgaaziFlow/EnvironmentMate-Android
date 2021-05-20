@@ -14,12 +14,12 @@ interface ChartRepository {
     fun requestCompareIndustrySameAll(usage: Int): Single<EnvRes>
 
     fun requestDetailIndustryEnergy(
-        gas: Int,
-        other: Int,
-        oil: Int,
-        coal: Int,
-        thermal: Int,
-        electric: Int
+        gas: Float,
+        other: Float,
+        oil: Float,
+        coal: Float,
+        thermal: Float,
+        electric: Float
     ): Single<IndustryEnergyRes>
 
 }

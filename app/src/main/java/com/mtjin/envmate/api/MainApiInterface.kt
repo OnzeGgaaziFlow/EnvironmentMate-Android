@@ -32,12 +32,12 @@ interface MainApiInterface {
 
     @GET("datas/detail/industry-energy")
     fun requestDetailIndustryEnergy(
-        @Query("gas") gas: Int,
-        @Query("other") other: Int,
-        @Query("oil") oil: Int,
-        @Query("coal") coal: Int,
-        @Query("thermal") thermal: Int,
-        @Query("electric") electric: Int
+        @Query("gas") gas: Float,
+        @Query("other") other: Float,
+        @Query("oil") oil: Float,
+        @Query("coal") coal: Float,
+        @Query("thermal") thermal: Float,
+        @Query("electric") electric: Float
     ): Single<IndustryEnergyRes>
 
     companion object {

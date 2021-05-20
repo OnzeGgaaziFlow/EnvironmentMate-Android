@@ -140,6 +140,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="가스(gas) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.gas}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_tv_usage" />
 
@@ -150,6 +151,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="기타(ohter) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.other}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_et_gas" />
 
@@ -160,6 +162,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="기름(oil) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.oil}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_et_other" />
 
@@ -170,6 +173,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="석탄(coal) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.coal}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_et_oil" />
 
@@ -180,6 +184,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="열에너지(thermal) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.thermal}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_et_coal" />
 
@@ -190,6 +195,7 @@
                     android:layout_marginTop="8dp"
                     android:hint="전기(electric) 사용량 , 단위 : GHG"
                     android:inputType="numberDecimal"
+                    android:text="@={vm.electric}"
                     app:layout_constraintStart_toStartOf="@id/chart_tv_usage"
                     app:layout_constraintTop_toBottomOf="@id/chart_et_thermal" />
 
@@ -202,6 +208,7 @@
                     android:layout_marginEnd="20dp"
                     android:layout_marginBottom="22dp"
                     android:background="@drawable/bg_btn_solid_dark_gray_333333_radius_8dp"
+                    android:onClick="@{()->vm.requestDetailIndustryEnergy()}"
                     android:text="사용량 분석"
                     android:textColor="@color/white"
                     android:textSize="16dp"

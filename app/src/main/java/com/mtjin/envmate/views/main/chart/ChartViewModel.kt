@@ -101,12 +101,12 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
 
     fun requestDetailIndustryEnergy() {
         repository.requestDetailIndustryEnergy(
-            gas.value!!.toInt(),
-            other.value!!.toInt(),
-            oil.value!!.toInt(),
-            coal.value!!.toInt(),
-            thermal.value!!.toInt(),
-            electric.value!!.toInt()
+            gas.value!!.toFloat(),
+            other.value!!.toFloat(),
+            oil.value!!.toFloat(),
+            coal.value!!.toFloat(),
+            thermal.value!!.toFloat(),
+            electric.value!!.toFloat()
         ).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { showProgress() }
