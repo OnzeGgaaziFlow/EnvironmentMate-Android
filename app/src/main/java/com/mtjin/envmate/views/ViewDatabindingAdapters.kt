@@ -5,9 +5,12 @@ import android.widget.TextView
 import androidx.core.content.ContextCompat
 import androidx.core.text.HtmlCompat
 import androidx.databinding.BindingAdapter
+import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.mtjin.envmate.R
+import com.mtjin.envmate.data.model.response.IndustryEnergy
+import com.mtjin.envmate.views.main.chart.ChartMissionAdapter
 
 @BindingAdapter("urlImage")
 fun ImageView.setUrlImage(url: String) {
@@ -40,5 +43,19 @@ fun TextView.setOnNextBackground(isCompleted: Boolean) {
         background =
             ContextCompat.getDrawable(context, R.drawable.bg_btn_solid_dark_gray_333333_radius_8dp)
         setTextColor(ContextCompat.getColor(context, R.color.white))
+    }
+}
+
+@BindingAdapter("setItems")
+fun RecyclerView.setAdapterItems(items: List<Any>?) {
+    when (adapter) {
+        is ChartMissionAdapter -> {
+            items?.let {
+                with(adapter as ChartMissionAdapter) {
+                    clear()
+                    addItems(it as List<IndustryEnergy>)
+                }
+            }
+        }
     }
 }

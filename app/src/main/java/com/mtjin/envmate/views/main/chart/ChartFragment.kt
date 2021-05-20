@@ -3,6 +3,8 @@ package com.mtjin.envmate.views.main.chart
 import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
+import com.bumptech.glide.Glide
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseFragment
 import com.mtjin.envmate.databinding.FragmentChartBinding
@@ -16,14 +18,53 @@ class ChartFragment :
     override fun init() {
         binding.vm = viewModel
         initView()
+        initAdapter()
         initViewModelCallback()
     }
 
-    private fun initViewModelCallback() {
+    private fun initAdapter() {
+        val alarmAdapter = ChartMissionAdapter(onItemClick = {
+            showToast(it.longMission)
+        })
+        binding.chartRvMissions.adapter = alarmAdapter
+    }
 
+    private fun initViewModelCallback() {
+        with(viewModel) {
+            compareRegionResult.observe(this@ChartFragment, Observer {
+                Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
+                    .into(binding.chartIvChart)
+                binding.chartTvComment.text = it.result
+            })
+
+            compareSameRegionResult.observe(this@ChartFragment, Observer {
+                Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
+                    .into(binding.chartIvChart)
+                binding.chartTvComment.text = it.result
+            })
+
+            compareIndustryAllEnvResult.observe(this@ChartFragment, Observer {
+                Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
+                    .into(binding.chartIvChart)
+                binding.chartTvComment.text = it.result
+            })
+
+            compareIndustrySameAllResult.observe(this@ChartFragment, Observer {
+                Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
+                    .into(binding.chartIvChart)
+                binding.chartTvComment.text = it.result
+            })
+
+            detailIndustryEnergyResult.observe(this@ChartFragment, Observer {
+                Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
+                    .into(binding.chartIvChart)
+
+            })
+        }
     }
 
     private fun initView() {
+        viewModel.requestCompareRegion()
         binding.chartSpType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
