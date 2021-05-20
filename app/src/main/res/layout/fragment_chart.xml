@@ -92,6 +92,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="32dp"
                 android:adjustViewBounds="true"
+                android:onClick="@{()->vm.goPhotoZoom()}"
                 app:layout_constraintTop_toBottomOf="@id/chart_tv_chart_analysis"
                 tools:src="@tools:sample/backgrounds/scenic" />
 

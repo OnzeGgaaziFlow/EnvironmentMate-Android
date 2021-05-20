@@ -69,7 +69,7 @@ interface ApiInterface {
 
     companion object {
         private const val BASE_URL =
-            "http://7324609a5ddf.ngrok.io/"
+            "http://6bbf8d339314.ngrok.io"
 
         fun create(): ApiInterface {
             val logger = HttpLoggingInterceptor().apply {

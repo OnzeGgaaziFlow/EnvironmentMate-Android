@@ -4,6 +4,7 @@ import android.view.View
 import android.widget.AdapterView
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import com.bumptech.glide.Glide
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseFragment
@@ -31,6 +32,14 @@ class ChartFragment :
 
     private fun initViewModelCallback() {
         with(viewModel) {
+            goPhotoZoom.observe(this@ChartFragment, Observer {
+                findNavController().navigate(
+                    ChartFragmentDirections.actionChartFragmentToPhotoZoomFragment(
+                        viewModel.imageUrl
+                    )
+                )
+            })
+
             compareRegionResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
@@ -116,6 +125,5 @@ class ChartFragment :
                 }
             }
         }
-
     }
 }

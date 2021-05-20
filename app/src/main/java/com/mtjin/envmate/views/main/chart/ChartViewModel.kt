@@ -21,6 +21,8 @@ import javax.inject.Inject
 class ChartViewModel @Inject constructor(private val repository: ChartRepository) :
     BaseViewModel() {
 
+    var imageUrl: String = ""
+
     var gas = MutableLiveData("0")
     var other = MutableLiveData("0")
     var oil = MutableLiveData("0")
@@ -28,6 +30,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
     var thermal = MutableLiveData("0")
     var electric = MutableLiveData("0")
 
+    private val _goPhotoZoom = SingleLiveEvent<Unit>()
     private val _compareRegionResult = SingleLiveEvent<EnvRes>()
     private val _compareSameRegionResult = SingleLiveEvent<EnvRes>()
     private val _compareIndustryAllEnvResult = SingleLiveEvent<EnvRes>()
@@ -35,6 +38,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
     private val _detailIndustryEnergyResult = SingleLiveEvent<IndustryEnergyRes>()
     private val _industryEnergyList = MutableLiveData<List<IndustryEnergy>>()
 
+    val goPhotoZoom: LiveData<Unit> get() = _goPhotoZoom
     val compareRegionResult: LiveData<EnvRes> get() = _compareRegionResult
     val compareSameRegionResult: LiveData<EnvRes> get() = _compareSameRegionResult
     val compareIndustryAllEnvResult: LiveData<EnvRes> get() = _compareIndustryAllEnvResult
@@ -51,7 +55,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
             .subscribeBy(onSuccess = {
                 Log.d(TAG, "requestCompareRegion() onSuccess -> $it")
                 _compareRegionResult.value = it
-
+                imageUrl = it.mediaUrl
             }, onError = {
                 Log.d(TAG, "requestCompareRegion() onError -> " + it.localizedMessage)
             }).addTo(compositeDisposable)
@@ -66,6 +70,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
             .subscribeBy(onSuccess = {
                 Log.d(TAG, "requestCompareSameRegion() onSuccess -> $it")
                 _compareSameRegionResult.value = it
+                imageUrl = it.mediaUrl
             }, onError = {
                 Log.d(TAG, "requestCompareSameRegion() onError -> " + it.localizedMessage)
             }).addTo(compositeDisposable)
@@ -80,6 +85,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
             .subscribeBy(onSuccess = {
                 Log.d(TAG, "requestCompareIndustryAllEnv() onSuccess -> $it")
                 _compareIndustryAllEnvResult.value = it
+                imageUrl = it.mediaUrl
             }, onError = {
                 Log.d(TAG, "requestCompareIndustryAllEnv() onError -> " + it.localizedMessage)
             }).addTo(compositeDisposable)
@@ -94,6 +100,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
             .subscribeBy(onSuccess = {
                 Log.d(TAG, "requestCompareIndustrySameAll() onSuccess -> $it")
                 _compareIndustrySameAllResult.value = it
+                imageUrl = it.mediaUrl
             }, onError = {
                 Log.d(TAG, "requestCompareIndustrySameAll() onError -> " + it.localizedMessage)
             }).addTo(compositeDisposable)
@@ -121,9 +128,14 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
                     itemList.add(IndustryEnergy(longMission, shortMission))
                 }
                 _industryEnergyList.value = itemList
+                imageUrl = it.mediaUrl
             }, onError = {
                 Log.d(TAG, "requestDetailIndustryEnergy() onError -> " + it.localizedMessage)
             }).addTo(compositeDisposable)
+    }
+
+    fun goPhotoZoom() {
+        _goPhotoZoom.call()
     }
 
 }
