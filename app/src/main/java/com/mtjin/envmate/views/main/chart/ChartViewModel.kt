@@ -21,12 +21,12 @@ import javax.inject.Inject
 class ChartViewModel @Inject constructor(private val repository: ChartRepository) :
     BaseViewModel() {
 
-    var gas = MutableLiveData("")
-    var other = MutableLiveData("")
-    var oil = MutableLiveData("")
-    var coal = MutableLiveData("")
-    var thermal = MutableLiveData("")
-    var electric = MutableLiveData("")
+    var gas = MutableLiveData("0")
+    var other = MutableLiveData("0")
+    var oil = MutableLiveData("0")
+    var coal = MutableLiveData("0")
+    var thermal = MutableLiveData("0")
+    var electric = MutableLiveData("0")
 
     private val _compareRegionResult = SingleLiveEvent<EnvRes>()
     private val _compareSameRegionResult = SingleLiveEvent<EnvRes>()

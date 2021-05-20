@@ -83,7 +83,6 @@ class ChartFragment :
     }
 
     private fun initView() {
-        viewModel.requestCompareRegion()
         binding.chartSpType.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onNothingSelected(parent: AdapterView<*>?) {
 
@@ -95,20 +94,24 @@ class ChartFragment :
                 position: Int,
                 id: Long
             ) {
+                binding.chartTvChartAnalysis.text =
+                    binding.chartSpType.selectedItem.toString()
                 when (position) {
                     0 -> {
-                        viewModel.requestCompareRegion()
                     }
                     1 -> {
-                        viewModel.requestCompareSameRegion()
+                        viewModel.requestCompareRegion()
                     }
                     2 -> {
-                        viewModel.requestCompareIndustryAllEnv()
+                        viewModel.requestCompareSameRegion()
                     }
                     3 -> {
-                        viewModel.requestCompareIndustrySameAll()
+                        viewModel.requestCompareIndustryAllEnv()
                     }
                     4 -> {
+                        viewModel.requestCompareIndustrySameAll()
+                    }
+                    5 -> {
                         viewModel.requestDetailIndustryEnergy()
                     }
                 }
