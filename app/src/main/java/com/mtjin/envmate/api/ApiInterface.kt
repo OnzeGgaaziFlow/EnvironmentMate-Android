@@ -69,20 +69,25 @@ interface ApiInterface {
         @Field("password") password: String
     ): Single<LoginRes>
 
+    @FormUrlEncoded
     @POST("datas/compare/region")
     fun requestCompareRegion(): Single<EnvRes>
 
+    @FormUrlEncoded
     @POST("datas/compare/same-region")
     fun requestCompareSameRegion(
         @Field("usage") usage: Int = 80000
     ): Single<EnvRes>
 
+    @FormUrlEncoded
     @POST("datas/compare/industry-all")
     fun requestCompareIndustryAllEnv(): Single<EnvRes>
 
+    @FormUrlEncoded
     @POST("datas/compare/industry-sameall")
     fun requestCompareIndustrySameAll(@Field("usage") usage: Int): Single<EnvRes>
 
+    @FormUrlEncoded
     @POST("datas/detail/industry-energy")
     fun requestDetailIndustryEnergy(
         @Field("gas") gas: Int,
