@@ -21,7 +21,7 @@ interface MainApiInterface {
 
     @GET("datas/compare/same-region")
     fun requestCompareSameRegion(
-        @Query("usage") usage: Int = 80000
+        @Query("usage") usage: Int = 8000
     ): Single<EnvRes>
 
     @GET("datas/compare/industry-all")
@@ -32,17 +32,17 @@ interface MainApiInterface {
 
     @GET("datas/detail/industry-energy")
     fun requestDetailIndustryEnergy(
-        @Query("gas") gas: Float,
-        @Query("other") other: Float,
-        @Query("oil") oil: Float,
-        @Query("coal") coal: Float,
-        @Query("thermal") thermal: Float,
-        @Query("electric") electric: Float
+        @Query("gas") gas: Int,
+        @Query("other") other: Int,
+        @Query("oil") oil: Int,
+        @Query("coal") coal: Int,
+        @Query("thermal") thermal: Int,
+        @Query("electric") electric: Int
     ): Single<IndustryEnergyRes>
 
     companion object {
         private const val BASE_URL =
-            "http://6bbf8d339314.ngrok.io"
+            "http://ae012de64b11.ngrok.io"
 
         fun create(): MainApiInterface {
             val logger = HttpLoggingInterceptor().apply {

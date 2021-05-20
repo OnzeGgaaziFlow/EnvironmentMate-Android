@@ -23,12 +23,12 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
 
     var imageUrl: String = ""
 
-    var gas = MutableLiveData("0")
-    var other = MutableLiveData("0")
-    var oil = MutableLiveData("0")
-    var coal = MutableLiveData("0")
-    var thermal = MutableLiveData("0")
-    var electric = MutableLiveData("0")
+    var gas = MutableLiveData("")
+    var other = MutableLiveData("")
+    var oil = MutableLiveData("")
+    var coal = MutableLiveData("")
+    var thermal = MutableLiveData("")
+    var electric = MutableLiveData("")
 
     private val _goPhotoZoom = SingleLiveEvent<Unit>()
     private val _compareRegionResult = SingleLiveEvent<EnvRes>()
@@ -108,12 +108,12 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
 
     fun requestDetailIndustryEnergy() {
         repository.requestDetailIndustryEnergy(
-            gas.value!!.toFloat(),
-            other.value!!.toFloat(),
-            oil.value!!.toFloat(),
-            coal.value!!.toFloat(),
-            thermal.value!!.toFloat(),
-            electric.value!!.toFloat()
+            gas.value!!.toInt(),
+            other.value!!.toInt(),
+            oil.value!!.toInt(),
+            coal.value!!.toInt(),
+            thermal.value!!.toInt(),
+            electric.value!!.toInt()
         ).subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { showProgress() }
@@ -122,10 +122,12 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
                 Log.d(TAG, "requestDetailIndustryEnergy() onSuccess -> $it")
                 _detailIndustryEnergyResult.value = it
                 val itemList = ArrayList<IndustryEnergy>()
-                for (i in 0..it.result.size) {
-                    val longMission = it.result[0][i]
-                    val shortMission = it.result[1][i]
-                    itemList.add(IndustryEnergy(longMission, shortMission))
+                if (it.result.isNotEmpty()) {
+                    for (i in 0..it.result.size) {
+                        val longMission = it.result[0][i]
+                        val shortMission = it.result[1][i]
+                        itemList.add(IndustryEnergy(longMission, shortMission))
+                    }
                 }
                 _industryEnergyList.value = itemList
                 imageUrl = it.mediaUrl

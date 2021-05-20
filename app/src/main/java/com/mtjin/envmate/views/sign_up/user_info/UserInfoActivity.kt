@@ -24,6 +24,7 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>(R.layout.activity
 
     private fun initView() {
         binding.userInfoEtUserPhone.setText(UserInfo.tel)
+        viewModel.userTel.value = UserInfo.tel
         // binding.userInfoEtUserPhone.isEnabled = false
     }
 
