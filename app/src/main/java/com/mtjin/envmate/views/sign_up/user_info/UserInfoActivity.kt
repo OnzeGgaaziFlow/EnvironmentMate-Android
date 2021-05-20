@@ -24,8 +24,7 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>(R.layout.activity
 
     private fun initView() {
         binding.userInfoEtUserPhone.setText(UserInfo.tel)
-//        binding.userInfoEtUserPhone.isFocusable = false
-//        binding.userInfoEtUserPhone.isEnabled = false
+        // binding.userInfoEtUserPhone.isEnabled = false
     }
 
     private fun initViewModelCallback() {

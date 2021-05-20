@@ -170,10 +170,12 @@ class PhoneAuthActivity : BaseActivity<ActivityPhoneAuthBinding>(R.layout.activi
     // 전화번호 인증 실행 (onCodeSent() 에서 받은 vertificationID 와
     // 문자로 받은 인증코드로 생성한 PhoneAuthCredential 사용)
     private fun verifyPhoneNumberWithCode(phoneAuthCredential: PhoneAuthCredential) {
+        UserInfo.tel = binding.phoneAuthEtPhoneNum.text.toString()
         if (UserInfo.tel.isNotBlank() && UserInfo.phoneAuthNum.isNotBlank() &&
             (UserInfo.tel == binding.phoneAuthEtPhoneNum.text.toString() && UserInfo.phoneAuthNum == binding.phoneAuthEtAuthNum.text.toString())
         ) { // 이전에  인증한 번호와 인증번호인 경우
             showToast("인증 성공")
+            UserInfo.tel = binding.phoneAuthEtPhoneNum.text.toString()
             startActivity(Intent(this@PhoneAuthActivity, UserInfoActivity::class.java))
             return
         }
@@ -181,7 +183,7 @@ class PhoneAuthActivity : BaseActivity<ActivityPhoneAuthBinding>(R.layout.activi
             .addOnCompleteListener(this@PhoneAuthActivity) { task ->
                 if (task.isSuccessful) {
                     showToast("인증 성공")
-                    UserInfo.phoneAuthNum = binding.phoneAuthEtPhoneNum.text.toString()
+                    UserInfo.tel = binding.phoneAuthEtPhoneNum.text.toString()
                     binding.phoneAuthEtAuthNum.isEnabled = true
                     startActivity(
                         Intent(this@PhoneAuthActivity, UserInfoActivity::class.java)
