@@ -8,7 +8,6 @@ import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivitySignInBinding
 import com.mtjin.envmate.utils.UserInfo
-import com.mtjin.envmate.views.login.LoginActivity
 import com.mtjin.envmate.views.main.MainActivity
 import com.mtjin.envmate.views.sign_up.sign_up.SignUpActivity
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,12 +25,14 @@ class SignInActivity : BaseActivity<ActivitySignInBinding>(R.layout.activity_sig
     private fun initViewModelCallback() {
         with(viewModel) {
             loginResult.observe(this@SignInActivity, Observer {
-                if (it) startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                if (it) {
+                    UserInfo.headerKey = viewModel.key
+                    startActivity(Intent(this@SignInActivity, MainActivity::class.java))
+                }
                 else showToast("로그인 실패")
             })
 
             goSignUp.observe(this@SignInActivity, Observer {
-                UserInfo.headerKey = "Token " + viewModel.key
                 startActivity(Intent(this@SignInActivity, SignUpActivity::class.java))
             })
         }

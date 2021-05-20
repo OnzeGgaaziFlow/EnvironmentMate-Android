@@ -17,6 +17,7 @@
 package com.mtjin.envmate.di
 
 import com.mtjin.envmate.api.ApiInterface
+import com.mtjin.envmate.api.MainApiInterface
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -31,5 +32,11 @@ class ApiModule {
     @Provides
     fun provideApiService(): ApiInterface {
         return ApiInterface.create()
+    }
+
+    @Singleton
+    @Provides
+    fun provideMainApiService(): MainApiInterface {
+        return MainApiInterface.create()
     }
 }

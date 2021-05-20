@@ -1,27 +1,27 @@
 package com.mtjin.envmate.data.chart
 
-import com.mtjin.envmate.api.ApiInterface
+import com.mtjin.envmate.api.MainApiInterface
 import com.mtjin.envmate.data.model.response.EnvRes
 import com.mtjin.envmate.data.model.response.IndustryEnergyRes
 import io.reactivex.Single
 import javax.inject.Inject
 
-class ChartRepositoryImpl @Inject constructor(private val apiInterface: ApiInterface) :
+class ChartRepositoryImpl @Inject constructor(private val mainApiInterface: MainApiInterface) :
     ChartRepository {
     override fun requestCompareRegion(): Single<EnvRes> {
-        return apiInterface.requestCompareRegion()
+        return mainApiInterface.requestCompareRegion()
     }
 
     override fun requestCompareSameRegion(usage: Int): Single<EnvRes> {
-        return apiInterface.requestCompareSameRegion(usage)
+        return mainApiInterface.requestCompareSameRegion(usage)
     }
 
     override fun requestCompareIndustryAllEnv(): Single<EnvRes> {
-        return apiInterface.requestCompareIndustryAllEnv()
+        return mainApiInterface.requestCompareIndustryAllEnv()
     }
 
     override fun requestCompareIndustrySameAll(usage: Int): Single<EnvRes> {
-        return apiInterface.requestCompareIndustrySameAll(usage)
+        return mainApiInterface.requestCompareIndustrySameAll(usage)
     }
 
     override fun requestDetailIndustryEnergy(
@@ -32,6 +32,6 @@ class ChartRepositoryImpl @Inject constructor(private val apiInterface: ApiInter
         thermal: Int,
         electric: Int
     ): Single<IndustryEnergyRes> {
-        return apiInterface.requestDetailIndustryEnergy(gas, other, oil, coal, thermal, electric)
+        return mainApiInterface.requestDetailIndustryEnergy(gas, other, oil, coal, thermal, electric)
     }
 }

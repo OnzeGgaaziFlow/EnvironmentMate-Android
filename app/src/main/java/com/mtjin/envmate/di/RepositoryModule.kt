@@ -1,6 +1,7 @@
 package com.mtjin.envmate.di
 
 import com.mtjin.envmate.api.ApiInterface
+import com.mtjin.envmate.api.MainApiInterface
 import com.mtjin.envmate.data.chart.ChartRepository
 import com.mtjin.envmate.data.chart.ChartRepositoryImpl
 import com.mtjin.envmate.data.sign_in.SignInRepository
@@ -31,7 +32,7 @@ class DatabaseModule {
 
     @Singleton
     @Provides
-    fun provideChartRepository(apiInterface: ApiInterface): ChartRepository {
-        return ChartRepositoryImpl(apiInterface)
+    fun provideChartRepository(mainApiInterface: MainApiInterface): ChartRepository {
+        return ChartRepositoryImpl(mainApiInterface)
     }
 }

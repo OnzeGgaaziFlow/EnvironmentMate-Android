@@ -16,12 +16,9 @@
 
 package com.mtjin.envmate.api
 
-import com.mtjin.envmate.data.model.response.EnvRes
-import com.mtjin.envmate.data.model.response.IndustryEnergyRes
 import com.mtjin.envmate.data.model.response.LoginRes
 import com.mtjin.envmate.data.model.response.SignUpRes
 import io.reactivex.Single
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -69,35 +66,6 @@ interface ApiInterface {
         @Field("password") password: String
     ): Single<LoginRes>
 
-    @FormUrlEncoded
-    @POST("datas/compare/region")
-    fun requestCompareRegion(): Single<EnvRes>
-
-    @FormUrlEncoded
-    @POST("datas/compare/same-region")
-    fun requestCompareSameRegion(
-        @Field("usage") usage: Int = 80000
-    ): Single<EnvRes>
-
-    @FormUrlEncoded
-    @POST("datas/compare/industry-all")
-    fun requestCompareIndustryAllEnv(): Single<EnvRes>
-
-    @FormUrlEncoded
-    @POST("datas/compare/industry-sameall")
-    fun requestCompareIndustrySameAll(@Field("usage") usage: Int): Single<EnvRes>
-
-    @FormUrlEncoded
-    @POST("datas/detail/industry-energy")
-    fun requestDetailIndustryEnergy(
-        @Field("gas") gas: Int,
-        @Field("other") other: Int,
-        @Field("oil") oil: Int,
-        @Field("coal") coal: Int,
-        @Field("thermal") thermal: Int,
-        @Field("electric") electric: Int
-    ): Single<IndustryEnergyRes>
-
 
     companion object {
         private const val BASE_URL =
@@ -108,17 +76,8 @@ interface ApiInterface {
                 level =
                     HttpLoggingInterceptor.Level.BASIC
             }
-            val interceptor = Interceptor { chain ->
-                with(chain) {
-                    val newRequest = request().newBuilder()
-                        .addHeader("Authorization", "")
-                        .build()
-                    proceed(newRequest)
-                }
-            }
             val client = OkHttpClient.Builder()
                 .addInterceptor(logger)
-                .addInterceptor(interceptor)
                 .build()
 
             return Retrofit.Builder()
