@@ -93,13 +93,13 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
                     android:layout_marginTop="16dp"
-                    bind:setItems="@{"
                     android:layout_marginEnd="18dp"
                     android:orientation="vertical"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    bind:setItems="@{"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_chart_mission" />
 
@@ -193,7 +193,7 @@
                 android:id="@+id/chart_layout_comment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"
+                android:visibility="visible"
                 app:layout_constraintTop_toBottomOf="@+id/chart_iv_chart">
 
                 <androidx.appcompat.widget.AppCompatTextView
@@ -202,7 +202,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="24dp"
-                    android:text="한줄 코멘트"
+                    android:text="한줄 데이터 분석 코멘트"
                     android:textColor="@color/dark_gray_242424"
                     android:textSize="16dp"
                     android:textStyle="bold"

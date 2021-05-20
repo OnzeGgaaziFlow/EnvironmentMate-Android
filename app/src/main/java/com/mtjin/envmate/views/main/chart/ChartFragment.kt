@@ -34,31 +34,50 @@ class ChartFragment :
             compareRegionResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-                binding.chartTvComment.text = it.result
+                binding.run {
+                    chartTvComment.text = it.result
+                    chartLayoutComment.visibility = View.VISIBLE
+                    chartLayoutMission.visibility = View.GONE
+                }
             })
 
             compareSameRegionResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-                binding.chartTvComment.text = it.result
+                binding.run {
+                    chartTvComment.text = it.result
+                    chartLayoutComment.visibility = View.VISIBLE
+                    chartLayoutMission.visibility = View.GONE
+                }
             })
 
             compareIndustryAllEnvResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-                binding.chartTvComment.text = it.result
+                binding.run {
+                    chartTvComment.text = it.result
+                    chartLayoutComment.visibility = View.VISIBLE
+                    chartLayoutMission.visibility = View.GONE
+                }
             })
 
             compareIndustrySameAllResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-                binding.chartTvComment.text = it.result
+                binding.run {
+                    chartTvComment.text = it.result
+                    chartLayoutComment.visibility = View.VISIBLE
+                    chartLayoutMission.visibility = View.GONE
+                }
             })
 
             detailIndustryEnergyResult.observe(this@ChartFragment, Observer {
                 Glide.with(this@ChartFragment).load(it.mediaUrl).thumbnail(0.1f)
                     .into(binding.chartIvChart)
-
+                binding.run {
+                    chartLayoutComment.visibility = View.GONE
+                    chartLayoutMission.visibility = View.VISIBLE
+                }
             })
         }
     }
