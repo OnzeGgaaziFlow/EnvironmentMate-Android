@@ -1,6 +1,7 @@
 package com.mtjin.envmate.base
 
 import android.os.Bundle
+import android.view.WindowManager
 import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
@@ -16,6 +17,7 @@ abstract class BaseActivity<B : ViewDataBinding>(
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN)
         binding = DataBindingUtil.setContentView(this, layoutId)
         binding.lifecycleOwner = this
     }

@@ -15,11 +15,21 @@
         android:theme="@style/Theme.EnvMate"
         android:usesCleartextTraffic="true">
         <activity android:name=".views.sign_up.sign_up_complete.SignUpCompleteActivity" />
-        <activity android:name=".views.sign_up.user_info.UserInfoActivity" />
-        <activity android:name=".views.sign_up.phone_auth.PhoneAuthActivity" />
-        <activity android:name=".views.sign_up.sign_up.SignUpActivity" />
-        <activity android:name=".views.login.LoginActivity" />
-        <activity android:name=".views.sign_in.SignInActivity" />
+        <activity
+            android:name=".views.sign_up.user_info.UserInfoActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".views.sign_up.phone_auth.PhoneAuthActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".views.sign_up.sign_up.SignUpActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".views.login.LoginActivity"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".views.sign_in.SignInActivity"
+            android:windowSoftInputMode="adjustResize" />
         <activity android:name=".views.splash.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,7 +37,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.main.MainActivity">
+        <activity
+            android:name=".views.main.MainActivity"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

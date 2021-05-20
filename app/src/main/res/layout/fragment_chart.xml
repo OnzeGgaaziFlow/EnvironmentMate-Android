@@ -99,7 +99,7 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    bind:setItems="@{"
+                    bind:setItems="@{vm.industryEnergyList}"
                     tools:itemCount="3"
                     tools:listitem="@layout/item_chart_mission" />
 
