@@ -40,7 +40,6 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
     }
 
     fun insertUserInfo() {
-        Log.d("AAAAAA", "AAAA")
         Log.d("AAAAAA", userTel.value!!)
         repository.insertUserInfo(
             User(
@@ -72,21 +71,5 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
             }).addTo(compositeDisposable)
     }
 
-//    private fun requestSignUpAccept() {
-//        repository.requestSignUpAccept(
-//            userEmail.value!!
-//        ).subscribeOn(Schedulers.io())
-//            .observeOn(AndroidSchedulers.mainThread())
-//            .doOnSubscribe { showProgress() }
-//            .doAfterTerminate { hideProgress() }
-//            .subscribeBy(onSuccess = {
-//                Log.d(TAG, "requestSignUpAccept() onSuccess -> $it")
-//                Log.d(TAG, "requestSignUpAccept() onSuccess -> " + it.message)
-//                _insertUserInfoResult.value = true
-//            }, onError = {
-//                Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
-//                _insertUserInfoResult.value = false
-//            }).addTo(compositeDisposable)
-//    }
 
 }
