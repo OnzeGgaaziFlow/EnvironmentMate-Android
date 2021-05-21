@@ -123,7 +123,7 @@ class ChartViewModel @Inject constructor(private val repository: ChartRepository
                 _detailIndustryEnergyResult.value = it
                 val itemList = ArrayList<IndustryEnergy>()
                 if (it.result.isNotEmpty()) {
-                    for (i in 0..it.result.size) {
+                    for (i in it.result[0].indices) {
                         val longMission = it.result[0][i]
                         val shortMission = it.result[1][i]
                         itemList.add(IndustryEnergy(longMission, shortMission))

@@ -54,35 +54,39 @@ class UserInfoViewModel @Inject constructor(private val repository: UserInfoRepo
                 industry = businessIndustry.value!!,
                 locationName = businessLocation.value!!
             )
-        ).subscribeOn(Schedulers.io())
+        ).flatMap {
+            repository.requestSignUpAccept(
+                userEmail.value!!
+            )
+        }.subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .doOnSubscribe { showProgress() }
             .doAfterTerminate { hideProgress() }
             .subscribeBy(onSuccess = {
                 Log.d(TAG, "insertUserInfo() onSuccess -> $it")
                 Log.d(TAG, "insertUserInfo() onSuccess -> " + it.message)
-                requestSignUpAccept()
-            }, onError = {
-                Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
-                _insertUserInfoResult.value = false
-            }).addTo(compositeDisposable)
-    }
-
-    private fun requestSignUpAccept() {
-        repository.requestSignUpAccept(
-            userEmail.value!!
-        ).subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .doOnSubscribe { showProgress() }
-            .doAfterTerminate { hideProgress() }
-            .subscribeBy(onSuccess = {
-                Log.d(TAG, "requestSignUpAccept() onSuccess -> $it")
-                Log.d(TAG, "requestSignUpAccept() onSuccess -> " + it.message)
                 _insertUserInfoResult.value = true
             }, onError = {
                 Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
                 _insertUserInfoResult.value = false
             }).addTo(compositeDisposable)
     }
+
+//    private fun requestSignUpAccept() {
+//        repository.requestSignUpAccept(
+//            userEmail.value!!
+//        ).subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .doOnSubscribe { showProgress() }
+//            .doAfterTerminate { hideProgress() }
+//            .subscribeBy(onSuccess = {
+//                Log.d(TAG, "requestSignUpAccept() onSuccess -> $it")
+//                Log.d(TAG, "requestSignUpAccept() onSuccess -> " + it.message)
+//                _insertUserInfoResult.value = true
+//            }, onError = {
+//                Log.d(TAG, "insertUserInfo() onError -> " + it.localizedMessage)
+//                _insertUserInfoResult.value = false
+//            }).addTo(compositeDisposable)
+//    }
 
 }

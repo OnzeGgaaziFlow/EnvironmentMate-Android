@@ -9,6 +9,7 @@ import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivityUserInfoBinding
 import com.mtjin.envmate.utils.UserInfo
 import com.mtjin.envmate.views.sign_in.SignInActivity
+import com.mtjin.envmate.views.sign_up.sign_up_complete.SignUpCompleteActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -66,7 +67,7 @@ class UserInfoActivity : BaseActivity<ActivityUserInfoBinding>(R.layout.activity
 
             insertUserInfoResult.observe(this@UserInfoActivity, Observer { success ->
                 if (success) {
-                    val intent = Intent(this@UserInfoActivity, SignInActivity::class.java)
+                    val intent = Intent(this@UserInfoActivity, SignUpCompleteActivity::class.java)
                     intent.flags =
                         Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                     startActivity(intent)

@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import com.mtjin.envmate.R
 import com.mtjin.envmate.base.BaseActivity
 import com.mtjin.envmate.databinding.ActivitySignUpCompleteBinding
-import com.mtjin.envmate.views.login.LoginActivity
+import com.mtjin.envmate.views.sign_in.SignInActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -24,7 +24,7 @@ class SignUpCompleteActivity :
     private fun initViewModelCallback() {
         with(viewModel) {
             goLogin.observe(this@SignUpCompleteActivity, Observer {
-                val intent = Intent(this@SignUpCompleteActivity, LoginActivity::class.java)
+                val intent = Intent(this@SignUpCompleteActivity, SignInActivity::class.java)
                 startActivity(intent)
                 finish()
             })

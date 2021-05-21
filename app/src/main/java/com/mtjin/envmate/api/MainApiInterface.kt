@@ -21,7 +21,7 @@ interface MainApiInterface {
 
     @GET("datas/compare/same-region")
     fun requestCompareSameRegion(
-        @Query("usage") usage: Int = 8000
+        @Query("usage") usage: Int = 80000
     ): Single<EnvRes>
 
     @GET("datas/compare/industry-all")
