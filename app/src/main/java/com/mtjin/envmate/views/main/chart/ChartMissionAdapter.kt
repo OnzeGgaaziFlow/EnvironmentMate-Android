@@ -19,7 +19,13 @@ class ChartMissionAdapter(private val onItemClick: (IndustryEnergy) -> Unit) :
             parent,
             false
         )
-        return ViewHolder(binding)
+        return ViewHolder(binding).apply {
+            binding.root.setOnClickListener {
+                val position = adapterPosition.takeIf { it != RecyclerView.NO_POSITION }
+                    ?: return@setOnClickListener
+                onItemClick(items[position])
+            }
+        }
     }
 
     override fun getItemCount(): Int = items.size
