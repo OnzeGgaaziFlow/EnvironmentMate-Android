@@ -30,7 +30,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
-            android:text="현재 환경지수 70점"
+            android:text="현재 환경지수 72점"
             android:textColor="@color/dark_gray_242424"
             android:textSize="24dp"
             android:textStyle="bold"
